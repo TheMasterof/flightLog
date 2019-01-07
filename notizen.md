@@ -1,6 +1,6 @@
+* Datenmodel erstellen
 * Bei Schaden: Schadensfotos hochladen können
 * User input überprüfen können
-* Datenmodel erstellen
 
 
 Framework: React (Web-basiert)
