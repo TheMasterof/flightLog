@@ -1,6 +1,7 @@
+* Datenmodel erstellen
 * Bei Schaden: Schadensfotos hochladen können
 * User input überprüfen können
-* Datenmodel erstellen mit InteliJ
+* Datenmodel erstellen mit IntelliJ
 
 
 Framework: React (Web-basiert)
