@@ -12,3 +12,12 @@ PHP für backend
 # Youtrack:
 * User stories + einem Sprint zuordnen
 * Tasks
+
+
+IntelliJ youtrack integrieren
+Sprints
+Welche Tasks in welcher User Story
+
+
+Rolle Betreuer hinzufügen (Für Versicherung etc.)
+Skizze
