@@ -21,3 +21,8 @@ Welche Tasks in welcher User Story
 
 Rolle Betreuer hinzufügen (Für Versicherung etc.)
 Skizze
+
+Flüge eingeben
+Flüge (in gewissem Zeitraum) abfragen
+Drohnenbenutzer
+unittests
