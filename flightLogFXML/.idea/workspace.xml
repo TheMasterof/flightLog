@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../notizen.md" beforeDir="false" afterPath="$PROJECT_DIR$/../notizen.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/out/production/temp/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../temp/temp.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../useCaseDiagram.graphml" beforeDir="false" afterPath="$PROJECT_DIR$/../useCaseDiagram.graphml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="JavaFXML created">
+      <change afterPath="$PROJECT_DIR$/src/Controller/AddWindowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DB/Database.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/View/addWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/LogEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/LogEntry.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -85,13 +79,68 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/MasterWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="8" column="60" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
+            <state relative-caret-position="357">
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/AddWindowController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/LogEntry.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+              <folding>
+                <element signature="n#!!doc;n#LogEntry#0;n#LogEntry#0" />
+                <element signature="n#!!doc;n#getTimeOfFlight#0;n#LogEntry#0" />
+                <element signature="e#202#203#0" expanded="true" />
+                <element signature="e#237#238#0" expanded="true" />
+                <element signature="e#300#301#0" expanded="true" />
+                <element signature="e#348#349#0" expanded="true" />
+                <element signature="e#379#380#0" expanded="true" />
+                <element signature="e#409#410#0" expanded="true" />
+                <element signature="e#452#453#0" expanded="true" />
+                <element signature="e#490#491#0" expanded="true" />
+                <element signature="e#516#517#0" expanded="true" />
+                <element signature="e#541#542#0" expanded="true" />
+                <element signature="e#574#575#0" expanded="true" />
+                <element signature="e#602#603#0" expanded="true" />
+                <element signature="e#640#641#0" expanded="true" />
+                <element signature="e#674#675#0" expanded="true" />
+                <element signature="e#728#729#0" expanded="true" />
+                <element signature="e#774#775#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/DB/Database.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#262#263#0" expanded="true" />
+                <element signature="e#302#303#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,6 +158,14 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
@@ -125,6 +182,10 @@
         <option value="$PROJECT_DIR$/src/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/View/sample.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/MasterWindowController.java" />
+        <option value="$PROJECT_DIR$/src/Model/LogEntry.java" />
+        <option value="$PROJECT_DIR$/src/View/addWindow.fxml" />
+        <option value="$PROJECT_DIR$/src/Controller/AddWindowController.java" />
+        <option value="$PROJECT_DIR$/src/DB/Database.java" />
       </list>
     </option>
   </component>
@@ -166,6 +227,12 @@
               <item name="flightLogFXML" type="b2602c69:ProjectViewProjectNode" />
               <item name="flightLogFXML" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="DB" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flightLogFXML" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flightLogFXML" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="sample" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -190,6 +257,7 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
@@ -296,12 +364,29 @@
       <option name="presentableId" value="Default" />
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
-      <workItem from="1559564931348" duration="887000" />
+      <workItem from="1559564931348" duration="3969000" />
     </task>
+    <task id="LOCAL-00001" summary="JavaFXML created">
+      <created>1559566078322</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1559566078322</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2189000" />
+    <option name="totallyTimeSpent" value="5271000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -315,7 +400,7 @@
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Terminal" weight="0.32956153" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -325,7 +410,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32956153" />
       <window_info anchor="bottom" id="Problems" order="9" />
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
@@ -350,6 +435,8 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <MESSAGE value="JavaFXML created" />
+    <option name="LAST_COMMIT_MESSAGE" value="JavaFXML created" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -377,12 +464,69 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/addWindow.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/MasterWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="60" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
+        <state relative-caret-position="357">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AddWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/LogEntry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
+          <folding>
+            <element signature="n#!!doc;n#LogEntry#0;n#LogEntry#0" />
+            <element signature="n#!!doc;n#getTimeOfFlight#0;n#LogEntry#0" />
+            <element signature="e#202#203#0" expanded="true" />
+            <element signature="e#237#238#0" expanded="true" />
+            <element signature="e#300#301#0" expanded="true" />
+            <element signature="e#348#349#0" expanded="true" />
+            <element signature="e#379#380#0" expanded="true" />
+            <element signature="e#409#410#0" expanded="true" />
+            <element signature="e#452#453#0" expanded="true" />
+            <element signature="e#490#491#0" expanded="true" />
+            <element signature="e#516#517#0" expanded="true" />
+            <element signature="e#541#542#0" expanded="true" />
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#602#603#0" expanded="true" />
+            <element signature="e#640#641#0" expanded="true" />
+            <element signature="e#674#675#0" expanded="true" />
+            <element signature="e#728#729#0" expanded="true" />
+            <element signature="e#774#775#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DB/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#302#303#0" expanded="true" />
           </folding>
         </state>
       </provider>
