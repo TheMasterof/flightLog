@@ -23,7 +23,7 @@
          <children>
             <Button fx:id="addFlightButton" mnemonicParsing="false" onAction="#addFlightButtonHandler" text="add Flight" GridPane.rowIndex="1" />
             <Button fx:id="showLogButton" mnemonicParsing="false" onAction="#showLogButtonHandler" text="show Log" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButtonHandler" text="Login" GridPane.columnIndex="2" />
             <TextField fx:id="parameterTextField" onAction="#parameterTextFieldHandler" translateY="50.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="Drone-ID" translateY="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Button fx:id="showDrones" mnemonicParsing="false" onAction="#showDronesHandler" text="show Drones" />
