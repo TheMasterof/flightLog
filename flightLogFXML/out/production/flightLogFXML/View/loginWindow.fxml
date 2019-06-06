@@ -33,7 +33,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="usernameTextField" alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+            <TextField fx:id="usernameTextField" alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#onKeyPressed" prefHeight="40.0" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                <font>
                   <Font size="18.0" />
                </font>
@@ -41,7 +41,7 @@
                   <Insets bottom="10.0" />
                </GridPane.margin>
             </TextField>
-            <PasswordField fx:id="passwordField" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <PasswordField fx:id="passwordField" maxWidth="-Infinity" minWidth="-Infinity" onKeyTyped="#onKeyPressed" prefHeight="40.0" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
    </center>

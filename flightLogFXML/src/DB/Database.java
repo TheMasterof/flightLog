@@ -12,7 +12,7 @@ import java.util.List;
 
 public class Database {
     //region Fields
-    private Database instance;
+    private static Database instance;
     private List<LogEntry> logs;
     Connection connection;
     //endregion
@@ -28,7 +28,7 @@ public class Database {
             e.printStackTrace();
         }
     }
-        public Database getInstance(){
+    public static Database getInstance(){
         if(instance == null)instance = new Database();
         return instance;
     }
