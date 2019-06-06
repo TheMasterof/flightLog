@@ -1,8 +1,11 @@
 package Controller;
 import Model.LoginThread;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -25,11 +28,25 @@ public class LoginWindowController implements Initializable, Observer {
     @FXML
     private PasswordField passwordField;
 
+    @FXML
+    private Button loginButton;
+
+
     //endregion
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+
+    @FXML
+    void loginButtonHandler(ActionEvent event) {
+        LoginThread lt = LoginThread.getInstance();
+        lt.addObserver(this);
+        thread = new Thread(lt);
+        lt.setLoginData(usernameTextField.getText(), passwordField.getText());
+        thread.start();
     }
 
     /*
@@ -52,14 +69,20 @@ public class LoginWindowController implements Initializable, Observer {
     public void update(Observable o, Object arg) {
         if((Boolean) arg){
             thread.interrupt();
-            Stage s = (Stage)usernameTextField.getScene().getWindow();
-            s.close();
+            Platform.runLater(() ->{
+                Stage s = (Stage)usernameTextField.getScene().getWindow();
+                s.close();
+            });
+
         }
         else{
-            Alert al = new Alert(Alert.AlertType.CONFIRMATION);
-            al.setTitle("Login Error");
-            al.setContentText("Falscher Username/Passwort");
-            al.show();
+            Platform.runLater(() ->{
+                Alert al = new Alert(Alert.AlertType.CONFIRMATION);
+                al.setTitle("Login Error");
+                al.setContentText("Falscher Username/Passwort");
+                al.show();
+            });
+
         }
     }
 }

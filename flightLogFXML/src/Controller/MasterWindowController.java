@@ -91,6 +91,9 @@ public class MasterWindowController implements Initializable, Observer {
 
     @Override
     public void update(Observable o, Object arg) {
+        if((Boolean)arg){
+            changeButtonsDisable();
+        }
 
     }
 }
