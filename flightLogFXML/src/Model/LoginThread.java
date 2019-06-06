@@ -37,6 +37,7 @@ public class LoginThread extends Observable implements Runnable {
         try {
             PreparedStatement prep = connection.prepareStatement(sql);
             ResultSet rs = prep.executeQuery();
+            rs.next();
             if(rs.getInt(1) != 0){
                 setChanged();
                 notifyObservers(true);
