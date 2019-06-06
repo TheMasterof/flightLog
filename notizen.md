@@ -21,6 +21,10 @@ Welche Tasks in welcher User Story
 
 Rolle Betreuer hinzufügen (Für Versicherung etc.)
 Skizze
+Enumeratoren für Identifikation der Logs (In eigener Tabelle)
+-> Eldup für Login
+
+Relationales Datenmodell in Krähenfuß-Notation
 
 Flüge eingeben
 Flüge (in gewissem Zeitraum) abfragen
