@@ -1,6 +1,8 @@
 package DB;
 
+import Model.Drone;
 import Model.LogEntry;
+import Model.User;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -22,7 +24,15 @@ public class Database {
     //endregion
 
 
-    public void addLogEntry(){
+    public void addLogEntry(LogEntry le){
+        //TODO
+    }
+
+    public void addUser(User u){
+        //TODO
+    }
+
+    public void addDrone(Drone d){
         //TODO
     }
 
