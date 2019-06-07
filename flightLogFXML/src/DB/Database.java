@@ -11,6 +11,10 @@ import java.util.List;
 public class Database {
     //region Fields
     private static Database instance;
+
+
+
+    private String currentUser;
     private List<LogEntry> logs;
     Connection connection;
     //endregion
@@ -32,9 +36,29 @@ public class Database {
     }
     //endregion
 
+    //region GetterSetter
+    public String getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(String currentUser) {
+        this.currentUser = currentUser;
+    }
+
+    //endregion
 
     public void addLogEntry(LogEntry le){
-        //TODO
+        String sql = "INSERT INTO log (droneID, description, time_of_flight)" +
+                "VALUES (?, ?, ?)";
+        try {
+            PreparedStatement prep = connection.prepareStatement(sql);
+            prep.setInt(1, le.getDroneID());
+            prep.setString(2, le.getDescription());
+            prep.setTimestamp(3, le.getTimeOfFlight());
+            prep.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void addUser(User u){

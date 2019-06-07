@@ -45,7 +45,6 @@ public class MasterWindowController implements Initializable, Observer {
     private int loginWindowHeight = 300;
     private int addWindowWidth = 600;
     private int addWindowHeight = 400;
-    private String currentUserID;
 
     //endregion
 
@@ -112,7 +111,7 @@ public class MasterWindowController implements Initializable, Observer {
     @Override
     public void update(Observable o, Object arg) {
         if(!arg.equals("")){
-            currentUserID = (String)arg;
+            Database.getInstance().setCurrentUser((String)arg);
             changeButtonsDisable();
             Platform.runLater(() -> {
                 messageLabel.setText("Hello " + Database.getInstance().getUsersName((String)arg));

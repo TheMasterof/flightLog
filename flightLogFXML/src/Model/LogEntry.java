@@ -1,17 +1,18 @@
 package Model;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 public class LogEntry {
     //region fields
-    private LocalDateTime timeOfFlight;
+    private Timestamp timeOfFlight;
     private int droneID;
     private int id;
     private String description;
     //endregion
 
     //region constructor
-    public LogEntry(LocalDateTime timeOfFlight, int droneID, String description) {
+    public LogEntry(Timestamp timeOfFlight, int droneID, String description) {
         this.timeOfFlight = timeOfFlight;
         this.droneID = droneID;
         this.description = description;
@@ -19,11 +20,11 @@ public class LogEntry {
     //endregion
 
     //region GetterSetter
-    public LocalDateTime getTimeOfFlight() {
+    public Timestamp getTimeOfFlight() {
         return timeOfFlight;
     }
 
-    public void setTimeOfFlight(LocalDateTime timeOfFlight) {
+    public void setTimeOfFlight(Timestamp timeOfFlight) {
         this.timeOfFlight = timeOfFlight;
     }
 
