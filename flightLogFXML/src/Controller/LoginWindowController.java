@@ -67,7 +67,7 @@ public class LoginWindowController implements Initializable, Observer {
     */
     @Override
     public void update(Observable o, Object arg) {
-        if((Boolean) arg){
+        if(!arg.equals("")){
             thread.interrupt();
             Platform.runLater(() ->{
                 Stage s = (Stage)usernameTextField.getScene().getWindow();

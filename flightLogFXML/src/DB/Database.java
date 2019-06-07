@@ -4,9 +4,7 @@ import Model.Drone;
 import Model.LogEntry;
 import Model.User;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -52,4 +50,16 @@ public class Database {
         return null;
     }
 
+    public String getUsersName(String id) {
+        String sql = "SELECT name FROM user WHERE id LIKE '" + id + "'";
+        try {
+            PreparedStatement prep = connection.prepareStatement(sql);
+            ResultSet rs = prep.executeQuery();
+            rs.next();
+            return rs.getString(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
 }

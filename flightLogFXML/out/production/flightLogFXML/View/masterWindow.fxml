@@ -88,6 +88,7 @@
                <GridPane.margin>
                   <Insets right="25.0" top="25.0" />
                </GridPane.margin></Button>
+            <Label fx:id="messageLabel" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
    </top>

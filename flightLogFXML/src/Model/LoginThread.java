@@ -33,18 +33,20 @@ public class LoginThread extends Observable implements Runnable {
     @Override
     public void run() {
 
-        String sql = "SELECT COUNT(*) FROM user WHERE id LIKE '" + username + "'";
+        String sql = "SELECT id FROM user WHERE id LIKE '" + username + "'";
         try {
             PreparedStatement prep = connection.prepareStatement(sql);
             ResultSet rs = prep.executeQuery();
-            rs.next();
-            if(rs.getInt(1) != 0){
-                setChanged();
-                notifyObservers(true);
+
+            if(rs.next()){
+                if(!rs.getString(1).equals("")){
+                    setChanged();
+                    notifyObservers(rs.getString(1));
+                }
             }
             else{
                 setChanged();
-                notifyObservers(false);
+                notifyObservers("");
             }
         } catch (SQLException e) {
             e.printStackTrace();

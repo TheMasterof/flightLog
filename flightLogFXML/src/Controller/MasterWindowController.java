@@ -1,6 +1,8 @@
 package Controller;
 
+import DB.Database;
 import Model.LoginThread;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -35,8 +38,14 @@ public class MasterWindowController implements Initializable, Observer {
     @FXML
     private Button showDrones;
 
-    private int loginScreenWidth = 300;
-    private int loginScreenHeight = 300;
+    @FXML
+    private Label messageLabel;
+
+    private int loginWindowWidth = 300;
+    private int loginWindowHeight = 300;
+    private int addWindowWidth = 600;
+    private int addWindowHeight = 400;
+    private String currentUserID;
 
     //endregion
 
@@ -54,6 +63,17 @@ public class MasterWindowController implements Initializable, Observer {
 
     @FXML
     void addFlightButtonHandler(ActionEvent event) {
+
+        try {
+            Stage stage = new Stage();
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource("../View/AddWindow.fxml"));
+            stage.setTitle("Add Flight");
+            stage.setScene(new Scene(root, loginWindowWidth, loginWindowHeight));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -78,7 +98,7 @@ public class MasterWindowController implements Initializable, Observer {
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("../View/loginWindow.fxml"));
             stage.setTitle("Login");
-            stage.setScene(new Scene(root, loginScreenWidth, loginScreenHeight));
+            stage.setScene(new Scene(root, loginWindowWidth, loginWindowHeight));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -91,8 +111,12 @@ public class MasterWindowController implements Initializable, Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        if((Boolean)arg){
+        if(!arg.equals("")){
+            currentUserID = (String)arg;
             changeButtonsDisable();
+            Platform.runLater(() -> {
+                messageLabel.setText("Hello " + Database.getInstance().getUsersName((String)arg));
+            });
         }
 
     }
