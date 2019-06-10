@@ -56,17 +56,9 @@
                   <Insets />
                </GridPane.margin>
             </Button>
-            <Label text="Drone-ID" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
-               <font>
-                  <Font size="18.0" />
-               </font>
+            <TextField fx:id="parameterTextField" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#parameterTextFieldHandler" prefWidth="100.0" promptText="Drone-ID" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                <GridPane.margin>
-                  <Insets bottom="70.0" />
-               </GridPane.margin>
-            </Label>
-            <TextField fx:id="parameterTextField" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#parameterTextFieldHandler" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
-               <GridPane.margin>
-                  <Insets bottom="45.0" />
+                  <Insets bottom="75.0" />
                </GridPane.margin>
             </TextField>
          </children>
@@ -81,14 +73,20 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButtonHandler" text="Login" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+            <Button fx:id="loginButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loginButtonHandler" prefHeight="40.0" prefWidth="70.0" text="Login" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
                <font>
                   <Font size="18.0" />
                </font>
                <GridPane.margin>
                   <Insets right="25.0" top="25.0" />
                </GridPane.margin></Button>
-            <Label fx:id="messageLabel" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Label fx:id="messageLabel" translateX="-100.0" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets top="55.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
          </children>
       </GridPane>
    </top>
