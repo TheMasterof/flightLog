@@ -1,7 +1,10 @@
 <component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="flightLogFXML:jar">
+  <artifact type="jar" name="flightLogFXML:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/flightLogFXML_jar</output-path>
     <root id="archive" name="flightLogFXML.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../META-INF/MANIFEST.MF" />
+      </element>
       <element id="module-output" name="flightLogFXML" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/Java-libraries/acegi-security-1.0.7.jar" path-in-jar="/" />
     </root>
