@@ -45,6 +45,9 @@ public class MasterWindowController implements Initializable, Observer {
     private int loginWindowHeight = 300;
     private int addWindowWidth = 600;
     private int addWindowHeight = 400;
+    private int showLogWindowWidth = 1000;
+    private int showLogWindowHeight = 600;
+
 
     //endregion
 
@@ -68,7 +71,7 @@ public class MasterWindowController implements Initializable, Observer {
             Parent root;
             root = FXMLLoader.load(getClass().getResource("../View/AddWindow.fxml"));
             stage.setTitle("Add Flight");
-            stage.setScene(new Scene(root, loginWindowWidth, loginWindowHeight));
+            stage.setScene(new Scene(root, addWindowWidth, addWindowHeight));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -83,6 +86,16 @@ public class MasterWindowController implements Initializable, Observer {
 
     @FXML
     void showLogButtonHandler(ActionEvent event) {
+        try {
+            Stage stage = new Stage();
+            Parent root = null;
+            root = FXMLLoader.load(getClass().getResource("../View/showLogWindow.fxml"));
+            stage.setTitle("Login");
+            stage.setScene(new Scene(root, showLogWindowWidth, showLogWindowHeight));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

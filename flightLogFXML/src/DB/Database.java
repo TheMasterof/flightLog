@@ -15,13 +15,11 @@ public class Database {
 
 
     private String currentUser;
-    private List<LogEntry> logs;
     Connection connection;
     //endregion
 
     //region Constructor
     private Database(){
-        logs = new LinkedList<>();
         try {
             connection = DriverManager.getConnection("jdbc:mariadb://192.168.99.100:3306/mydb", "user", "passme");
             System.out.println("Connection OK!");
@@ -85,5 +83,25 @@ public class Database {
             e.printStackTrace();
         }
         return "";
+    }
+
+    public List<LogEntry> getLogEntries() {
+        String sql = "SELECT id, time_of_flight, droneID, description FROM log";
+        List<LogEntry> entries = new LinkedList<>();
+        try {
+            PreparedStatement prep = connection.prepareStatement(sql);
+            ResultSet rs = prep.executeQuery();
+            while(rs.next()){
+                System.out.println("added");
+                entries.add(new LogEntry(rs.getInt(1), rs.getTimestamp(2),
+                        rs.getInt(3), rs.getString(4)));
+            }
+            return entries;
+
+        } catch (SQLException e) {
+            System.out.println("Fehler bei SQL Abfrage der Logs");
+            e.printStackTrace();
+        }
+        return null;
     }
 }

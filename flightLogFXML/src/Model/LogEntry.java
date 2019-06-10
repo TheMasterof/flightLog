@@ -8,6 +8,9 @@ public class LogEntry {
     private Timestamp timeOfFlight;
     private int droneID;
     private int id;
+
+
+
     private String description;
     //endregion
 
@@ -16,6 +19,12 @@ public class LogEntry {
         this.timeOfFlight = timeOfFlight;
         this.droneID = droneID;
         this.description = description;
+    }
+    public LogEntry( int id, Timestamp timeOfFlight, int droneID, String description){
+        this.timeOfFlight = timeOfFlight;
+        this.droneID = droneID;
+        this.description = description;
+        this.id = id;
     }
     //endregion
 
@@ -56,4 +65,14 @@ public class LogEntry {
 
     //endregion
 
+
+    @Override
+    public String toString() {
+        return "LogEntry{" +
+                "timeOfFlight=" + timeOfFlight +
+                ", droneID=" + droneID +
+                ", id=" + id +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }
