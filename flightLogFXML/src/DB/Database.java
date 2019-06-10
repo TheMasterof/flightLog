@@ -11,9 +11,6 @@ import java.util.List;
 public class Database {
     //region Fields
     private static Database instance;
-
-
-
     private String currentUser;
     Connection connection;
     //endregion
@@ -46,13 +43,14 @@ public class Database {
     //endregion
 
     public void addLogEntry(LogEntry le){
-        String sql = "INSERT INTO log (droneID, description, time_of_flight)" +
-                "VALUES (?, ?, ?)";
+        String sql = "INSERT INTO log (droneID, userID, description, time_of_flight)" +
+                "VALUES (?, ?, ?, ?)";
         try {
             PreparedStatement prep = connection.prepareStatement(sql);
             prep.setInt(1, le.getDroneID());
-            prep.setString(2, le.getDescription());
-            prep.setTimestamp(3, le.getTimeOfFlight());
+            prep.setString(2, le.getUserID());
+            prep.setString(3, le.getDescription());
+            prep.setTimestamp(4, le.getTimeOfFlight());
             prep.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -86,14 +84,14 @@ public class Database {
     }
 
     public List<LogEntry> getLogEntries() {
-        String sql = "SELECT id, time_of_flight, droneID, description FROM log";
+        String sql = "SELECT id, droneID, userID, description, time_of_flight FROM log";
         List<LogEntry> entries = new LinkedList<>();
         try {
             PreparedStatement prep = connection.prepareStatement(sql);
             ResultSet rs = prep.executeQuery();
             while(rs.next()){
-                entries.add(new LogEntry(rs.getInt(1), rs.getTimestamp(2),
-                        rs.getInt(3), rs.getString(4)));
+                entries.add(new LogEntry(rs.getInt(1), rs.getInt(2),
+                        rs.getString(3), rs.getString(4), rs.getTimestamp(5)));
             }
             return entries;
 

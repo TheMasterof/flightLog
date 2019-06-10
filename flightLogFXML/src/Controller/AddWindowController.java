@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import javax.management.timer.TimerMBean;
+import javax.xml.crypto.Data;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.time.LocalDate;
@@ -63,7 +64,7 @@ public class AddWindowController implements Initializable {
                 }
             }
             if(containsOnlyDigits){
-                Database.getInstance().addLogEntry(new LogEntry(t, Integer.parseInt(droneIDTextField.getText()), descriptionTextArea.getText()));
+                Database.getInstance().addLogEntry(new LogEntry(Integer.parseInt(droneIDTextField.getText()), Database.getInstance().getCurrentUser(), descriptionTextArea.getText(), t));
                 Platform.runLater(() ->{
                     Stage s = (Stage)droneIDTextField.getScene().getWindow();
                     s.close();

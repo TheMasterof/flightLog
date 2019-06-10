@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import sun.rmi.runtime.Log;
 
 import java.net.URL;
 import java.sql.Timestamp;
@@ -28,6 +29,9 @@ public class ShowLogWindowController implements Initializable {
     private TableColumn<LogEntry, Integer> droneIDCol;
 
     @FXML
+    private TableColumn<LogEntry, String> userIDCol;
+
+    @FXML
     private TableColumn<LogEntry, String> descriptionCol;
 
     @FXML
@@ -41,6 +45,7 @@ public class ShowLogWindowController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         logIDCol.setCellValueFactory(new PropertyValueFactory("id"));
         droneIDCol.setCellValueFactory(new PropertyValueFactory("droneID"));
+        userIDCol.setCellValueFactory(new PropertyValueFactory("userID"));
         descriptionCol.setCellValueFactory(new PropertyValueFactory("description"));
         timeOfFlightCol.setCellValueFactory(new PropertyValueFactory("timeOfFlight"));
         entries = Database.getInstance().getLogEntries();
