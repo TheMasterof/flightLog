@@ -47,7 +47,8 @@ public class MasterWindowController implements Initializable, Observer {
     private int addWindowHeight = 400;
     private int showLogWindowWidth = 1000;
     private int showLogWindowHeight = 600;
-
+    private int showDronesWindowWidth = 1000;
+    private int showDronesWindowHeight = 600;
 
     //endregion
 
@@ -90,7 +91,7 @@ public class MasterWindowController implements Initializable, Observer {
             Stage stage = new Stage();
             Parent root = null;
             root = FXMLLoader.load(getClass().getResource("../View/showLogWindow.fxml"));
-            stage.setTitle("Login");
+            stage.setTitle("Logs");
             stage.setScene(new Scene(root, showLogWindowWidth, showLogWindowHeight));
             stage.show();
         } catch (IOException e) {
@@ -119,6 +120,16 @@ public class MasterWindowController implements Initializable, Observer {
     }
 
     public void showDronesHandler(ActionEvent actionEvent) {
+        try {
+            Stage stage = new Stage();
+            Parent root = null;
+            root = FXMLLoader.load(getClass().getResource("../View/showDronesWindow.fxml"));
+            stage.setTitle("Drones");
+            stage.setScene(new Scene(root, showDronesWindowWidth, showDronesWindowHeight));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

@@ -103,4 +103,23 @@ public class Database {
         }
         return null;
     }
+
+    public List<Drone> getDrones() {
+        String sql = "SELECT id, name, description, available FROM drone";
+        List<Drone> drones = new LinkedList<>();
+        try {
+            PreparedStatement prep = connection.prepareStatement(sql);
+            ResultSet rs = prep.executeQuery();
+            while(rs.next()){
+                drones.add(new Drone(rs.getInt(1), rs.getString(2),
+                        rs.getString(3), rs.getBoolean(4)));
+            }
+            return drones;
+
+        } catch (SQLException e) {
+            System.out.println("Fehler bei SQL Abfrage der Drohnen");
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
