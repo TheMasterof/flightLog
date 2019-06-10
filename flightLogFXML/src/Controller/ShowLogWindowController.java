@@ -45,7 +45,6 @@ public class ShowLogWindowController implements Initializable {
         timeOfFlightCol.setCellValueFactory(new PropertyValueFactory("timeOfFlight"));
         entries = Database.getInstance().getLogEntries();
         ObservableList<LogEntry> obs = FXCollections.observableArrayList(entries);
-        System.out.println(obs);
         logTableView.setItems(obs);
     }
 }

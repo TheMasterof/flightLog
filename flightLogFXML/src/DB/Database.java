@@ -92,7 +92,6 @@ public class Database {
             PreparedStatement prep = connection.prepareStatement(sql);
             ResultSet rs = prep.executeQuery();
             while(rs.next()){
-                System.out.println("added");
                 entries.add(new LogEntry(rs.getInt(1), rs.getTimestamp(2),
                         rs.getInt(3), rs.getString(4)));
             }
