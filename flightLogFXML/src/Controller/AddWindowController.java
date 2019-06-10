@@ -2,10 +2,12 @@ package Controller;
 
 import DB.Database;
 import Model.LogEntry;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import javax.management.timer.TimerMBean;
 import java.net.URL;
@@ -62,6 +64,10 @@ public class AddWindowController implements Initializable {
             }
             if(containsOnlyDigits){
                 Database.getInstance().addLogEntry(new LogEntry(t, Integer.parseInt(droneIDTextField.getText()), descriptionTextArea.getText()));
+                Platform.runLater(() ->{
+                    Stage s = (Stage)droneIDTextField.getScene().getWindow();
+                    s.close();
+                });
             }
         }
     }
