@@ -101,22 +101,28 @@ public class MasterWindowController implements Initializable, Observer {
     }
 
     public void loginButtonHandler(ActionEvent actionEvent) {
-        try {
-            LoginThread lt = LoginThread.getInstance();
-            System.out.println(lt);
-            System.out.println(this);
-            lt.addObserver(this);
-            Thread t = new Thread(lt);
-
-            Stage stage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("../View/loginWindow.fxml"));
-            stage.setTitle("Login");
-            stage.setScene(new Scene(root, loginWindowWidth, loginWindowHeight));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(loginButton.getText().equals("Logout")){
+            changeButtonsDisable();
+            Database.getInstance().setCurrentUser(null);
+            loginButton.setText("Login");
         }
+        else{
+            try {
+                LoginThread lt = LoginThread.getInstance();
+                System.out.println(lt);
+                System.out.println(this);
+                lt.addObserver(this);
+                Thread t = new Thread(lt);
 
+                Stage stage = new Stage();
+                Parent root = FXMLLoader.load(getClass().getResource("../View/loginWindow.fxml"));
+                stage.setTitle("Login");
+                stage.setScene(new Scene(root, loginWindowWidth, loginWindowHeight));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void showDronesHandler(ActionEvent actionEvent) {
@@ -136,8 +142,10 @@ public class MasterWindowController implements Initializable, Observer {
     public void update(Observable o, Object arg) {
         if(!arg.equals("")){
             Database.getInstance().setCurrentUser((String)arg);
-            changeButtonsDisable();
+
             Platform.runLater(() -> {
+                changeButtonsDisable();
+                loginButton.setText("Logout");
                 messageLabel.setText("Hello " + Database.getInstance().getUsersName((String)arg));
             });
         }

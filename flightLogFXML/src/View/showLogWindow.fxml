@@ -10,8 +10,9 @@
         <columns>
           <TableColumn fx:id="logIDCol" prefWidth="72.00002747774124" text="LogID" />
           <TableColumn fx:id="droneIDCol" prefWidth="76.79995727539062" text="DroneID" />
-            <TableColumn fx:id="descriptionCol" prefWidth="640.0000457763672" text="Description" />
-            <TableColumn fx:id="timeOfFlightCol" prefWidth="210.39996337890625" text="Time of Flight" />
+            <TableColumn fx:id="userIDCol" prefWidth="128.00006103515625" text="UserID" />
+            <TableColumn fx:id="descriptionCol" prefWidth="562.39990234375" text="Description" />
+            <TableColumn fx:id="timeOfFlightCol" prefWidth="158.39996337890625" text="Time of Flight" />
         </columns>
       </TableView>
    </top>

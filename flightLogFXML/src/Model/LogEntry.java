@@ -5,23 +5,23 @@ import java.time.LocalDateTime;
 
 public class LogEntry {
     //region fields
-    private Timestamp timeOfFlight;
-    private int droneID;
     private int id;
-
-
-
+    private int droneID;
+    private String userID;
     private String description;
+    private Timestamp timeOfFlight;
     //endregion
 
     //region constructor
-    public LogEntry(Timestamp timeOfFlight, int droneID, String description) {
+    public LogEntry(int droneID, String userID, String description, Timestamp timeOfFlight) {
+        this.userID = userID;
         this.timeOfFlight = timeOfFlight;
         this.droneID = droneID;
         this.description = description;
     }
-    public LogEntry( int id, Timestamp timeOfFlight, int droneID, String description){
+    public LogEntry(int id, int droneID, String userID, String description, Timestamp timeOfFlight){
         this.timeOfFlight = timeOfFlight;
+        this.userID = userID;
         this.droneID = droneID;
         this.description = description;
         this.id = id;
@@ -74,5 +74,13 @@ public class LogEntry {
                 ", id=" + id +
                 ", description='" + description + '\'' +
                 '}';
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 }
