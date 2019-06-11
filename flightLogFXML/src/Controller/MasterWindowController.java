@@ -54,7 +54,7 @@ public class MasterWindowController implements Initializable, Observer {
     private int showLogWindowHeight = 600;
     private int showDronesWindowWidth = 1000;
     private int showDronesWindowHeight = 600;
-    private int addDroneWindowWidth = 600;
+    private int addDroneWindowWidth = 300;
     private int addDroneWindowHeight = 400;
 
     //endregion
