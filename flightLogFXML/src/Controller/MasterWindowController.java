@@ -67,7 +67,7 @@ public class MasterWindowController implements Initializable, Observer {
 
     public void changeButtonsDisable(){
         addFlightButton.setDisable(!addFlightButton.isDisabled());
-        addDroneButton.setDisable(!showDrones.isDisabled());
+        addDroneButton.setDisable(!addDroneButton.isDisabled());
     }
 
     @FXML
@@ -165,6 +165,7 @@ public class MasterWindowController implements Initializable, Observer {
         if(loginButton.getText().equals("Logout")){
             changeButtonsDisable();
             Database.getInstance().setCurrentUser(null);
+            messageLabel.setText("");
             loginButton.setText("Login");
         }
         else{
