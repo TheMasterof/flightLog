@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
@@ -70,7 +71,7 @@ public class MasterWindowController implements Initializable, Observer {
         try {
             Stage stage = new Stage();
             Parent root;
-            root = FXMLLoader.load(getClass().getResource("../View/AddWindow.fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("fxml/addWindow.fxml")));
             stage.setTitle("Add Flight");
             stage.setScene(new Scene(root, addWindowWidth, addWindowHeight));
             stage.show();
@@ -90,7 +91,7 @@ public class MasterWindowController implements Initializable, Observer {
         try {
             Stage stage = new Stage();
             Parent root = null;
-            root = FXMLLoader.load(getClass().getResource("../View/showLogWindow.fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("fxml/showLogWindow.fxml")));
             stage.setTitle("Logs");
             stage.setScene(new Scene(root, showLogWindowWidth, showLogWindowHeight));
             stage.show();
@@ -115,7 +116,7 @@ public class MasterWindowController implements Initializable, Observer {
                 Thread t = new Thread(lt);
 
                 Stage stage = new Stage();
-                Parent root = FXMLLoader.load(getClass().getResource("../View/loginWindow.fxml"));
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("fxml/loginWindow.fxml")));
                 stage.setTitle("Login");
                 stage.setScene(new Scene(root, loginWindowWidth, loginWindowHeight));
                 stage.show();
@@ -129,7 +130,7 @@ public class MasterWindowController implements Initializable, Observer {
         try {
             Stage stage = new Stage();
             Parent root = null;
-            root = FXMLLoader.load(getClass().getResource("../View/showDronesWindow.fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("fxml/showDronesWindow.fxml")));
             stage.setTitle("Drones");
             stage.setScene(new Scene(root, showDronesWindowWidth, showDronesWindowHeight));
             stage.show();
