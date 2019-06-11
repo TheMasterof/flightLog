@@ -14,12 +14,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        URL url = new File("flightLogFXML/src/view/masterWindow.fxml").toURI().toURL();
-        Parent root = FXMLLoader.load(url);
-        primaryStage.setTitle("flightLog");
-        primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(root, 800, 600));
-        primaryStage.show();
+        Stage stage = new Stage();
+        Parent root = null;
+        root = FXMLLoader.load(getClass().getResource("../View/masterWindow.fxml"));
+        stage.setTitle("flightLog");
+        stage.setScene(new Scene(root, 800, 800));
+        stage.show();
     }
 
 

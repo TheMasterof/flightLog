@@ -12,6 +12,7 @@ public class Database {
     //region Fields
     private static Database instance;
     private String currentUser;
+    private int currentDroneID;
     Connection connection;
     //endregion
 
@@ -24,6 +25,7 @@ public class Database {
             System.out.println("Verbindung zur DB nicht möglich");
             e.printStackTrace();
         }
+        currentDroneID = -1;
     }
     public static Database getInstance(){
         if(instance == null)instance = new Database();
@@ -38,6 +40,14 @@ public class Database {
 
     public void setCurrentUser(String currentUser) {
         this.currentUser = currentUser;
+    }
+
+    public int getCurrentDroneID() {
+        return currentDroneID;
+    }
+
+    public void setCurrentDroneID(int currentDroneID) {
+        this.currentDroneID = currentDroneID;
     }
 
     //endregion
@@ -64,10 +74,26 @@ public class Database {
     public void addDrone(Drone d){
         //TODO
     }
+    private List<LogEntry> getLogEntriesWithGivenSQL(String sql){
+        List<LogEntry> entries = new LinkedList<>();
+        try {
+            PreparedStatement prep = connection.prepareStatement(sql);
+            ResultSet rs = prep.executeQuery();
+            while(rs.next()){
+                entries.add(new LogEntry(rs.getInt(1), rs.getInt(2),
+                        rs.getString(3), rs.getString(4), rs.getTimestamp(5)));
+            }
+            return entries;
 
-    public List<LogEntry> getLogEntriesOfDrone(int droneID){
-        //TODO
+        } catch (SQLException e) {
+            System.out.println("Fehler bei SQL Abfrage der Logs");
+            e.printStackTrace();
+        }
         return null;
+    }
+    public List<LogEntry> getLogEntriesOfDrone(int droneID){
+        String sql = "SELECT id, droneID, userID, description, time_of_flight FROM log WHERE droneID = " + droneID;
+        return getLogEntriesWithGivenSQL(sql);
     }
 
     public String getUsersName(String id) {
@@ -85,21 +111,7 @@ public class Database {
 
     public List<LogEntry> getLogEntries() {
         String sql = "SELECT id, droneID, userID, description, time_of_flight FROM log";
-        List<LogEntry> entries = new LinkedList<>();
-        try {
-            PreparedStatement prep = connection.prepareStatement(sql);
-            ResultSet rs = prep.executeQuery();
-            while(rs.next()){
-                entries.add(new LogEntry(rs.getInt(1), rs.getInt(2),
-                        rs.getString(3), rs.getString(4), rs.getTimestamp(5)));
-            }
-            return entries;
-
-        } catch (SQLException e) {
-            System.out.println("Fehler bei SQL Abfrage der Logs");
-            e.printStackTrace();
-        }
-        return null;
+        return getLogEntriesWithGivenSQL(sql);
     }
 
     public List<Drone> getDrones() {
@@ -119,5 +131,18 @@ public class Database {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public Boolean checkIfDroneExists(int droneID){
+        String sql = "SELECT COUNT(*) FROM drone WHERE id = " + droneID;
+        try {
+            PreparedStatement prep = connection.prepareStatement(sql);
+            ResultSet rs = prep.executeQuery();
+            rs.next();
+            if(rs.getInt(1) == 1)return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

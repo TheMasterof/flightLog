@@ -48,7 +48,12 @@ public class ShowLogWindowController implements Initializable {
         userIDCol.setCellValueFactory(new PropertyValueFactory("userID"));
         descriptionCol.setCellValueFactory(new PropertyValueFactory("description"));
         timeOfFlightCol.setCellValueFactory(new PropertyValueFactory("timeOfFlight"));
-        entries = Database.getInstance().getLogEntries();
+        if(Database.getInstance().getCurrentDroneID() == -1){
+            entries = Database.getInstance().getLogEntries();
+        }
+        else{
+            entries = Database.getInstance().getLogEntriesOfDrone(Database.getInstance().getCurrentDroneID());
+        }
         logTableView.setItems(FXCollections.observableArrayList(entries));
     }
 }

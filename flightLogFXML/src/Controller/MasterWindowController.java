@@ -2,6 +2,7 @@ package Controller;
 
 import DB.Database;
 import Model.LoginThread;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,15 +10,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
@@ -72,8 +72,7 @@ public class MasterWindowController implements Initializable, Observer {
         try {
             Stage stage = new Stage();
             Parent root;
-            URL url = new File("flightLogFXML/src/view/addWindow.fxml").toURI().toURL();
-            root = FXMLLoader.load(url);
+            root = FXMLLoader.load(getClass().getResource("../View/AddWindow.fxml"));
             stage.setTitle("Add Flight");
             stage.setScene(new Scene(root, addWindowWidth, addWindowHeight));
             stage.show();
@@ -90,18 +89,51 @@ public class MasterWindowController implements Initializable, Observer {
 
     @FXML
     void showLogButtonHandler(ActionEvent event) {
+        String param = parameterTextField.getText();
+        Boolean containsOnlyDigits = true;
+        if(!param.equals("")){
+            for (int i = 0; i < param.length(); i++) {
+                if(!Character.isDigit(param.charAt(i))){
+                    containsOnlyDigits = false;
+                }
+            }
+            if(containsOnlyDigits){
+                if(Database.getInstance().checkIfDroneExists(Integer.parseInt(param))){
+                    Database.getInstance().setCurrentDroneID(Integer.parseInt(param));
+                    openShowLogWindow();
+                }
+                else{
+                    Alert al1 = new Alert(Alert.AlertType.CONFIRMATION);
+                    al1.setTitle("Drone not Found");
+                    al1.setContentText("The given droneID does not exist");
+                    al1.show();
+                }
+            }
+            else{
+                Alert al = new Alert(Alert.AlertType.CONFIRMATION);
+                al.setTitle("Wrong Parameter");
+                al.setContentText("The given Drone-ID is of wrong type");
+                al.show();
+            }
+        }
+        else{
+            Database.getInstance().setCurrentDroneID(-1);
+            openShowLogWindow();
+        }
+
+    }
+
+    private void openShowLogWindow(){
         try {
             Stage stage = new Stage();
             Parent root = null;
-            URL url = new File("flightLogFXML/src/view/showLogWindow.fxml").toURI().toURL();
-            root = FXMLLoader.load(url);
+            root = FXMLLoader.load(getClass().getResource("../View/showLogWindow.fxml"));
             stage.setTitle("Logs");
             stage.setScene(new Scene(root, showLogWindowWidth, showLogWindowHeight));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void loginButtonHandler(ActionEvent actionEvent) {
@@ -119,8 +151,7 @@ public class MasterWindowController implements Initializable, Observer {
                 Thread t = new Thread(lt);
 
                 Stage stage = new Stage();
-                URL url = new File("flightLogFXML/src/view/loginWindow.fxml").toURI().toURL();
-                Parent root = FXMLLoader.load(url);
+                Parent root = FXMLLoader.load(getClass().getResource("../View/loginWindow.fxml"));
                 stage.setTitle("Login");
                 stage.setScene(new Scene(root, loginWindowWidth, loginWindowHeight));
                 stage.show();
@@ -134,8 +165,7 @@ public class MasterWindowController implements Initializable, Observer {
         try {
             Stage stage = new Stage();
             Parent root = null;
-            URL url = new File("flightLogFXML/src/view/showDronesWindow.fxml").toURI().toURL();
-            root = FXMLLoader.load(url);
+            root = FXMLLoader.load(getClass().getResource("../View/showDronesWindow.fxml"));
             stage.setTitle("Drones");
             stage.setScene(new Scene(root, showDronesWindowWidth, showDronesWindowHeight));
             stage.show();
