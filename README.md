@@ -27,7 +27,7 @@ Anmelden kann man sich über das Login Fenster mit Usernamen 'peda', 'hans' oder
 Nun kann man Flüge und Drohnen hinzufügen.
 
 ### ToDo
-Login mit ldap (Es felht eine Connextion-URL des Ldap Servers)
+Login mit ldap (Es felht eine Connection-URL des Ldap Servers)
 
 ### Used Technologies and Libraries
 * [Java SE](https://www.w3schools.com/java/)
