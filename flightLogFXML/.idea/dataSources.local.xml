@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="flightLogDB" uuid="a69239c5-e99f-47ec-9a0f-15e8e2664a15">
+    <data-source name="flightLogDB" uuid="201734fe-19df-4e8e-9d20-53529b7f24fa">
       <database-info product="MariaDB" version="10.4.5-MariaDB-1:10.4.5+maria~bionic" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="2.4.1" dbms="MARIADB" exact-version="10.4.5" exact-driver-version="2.4">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>

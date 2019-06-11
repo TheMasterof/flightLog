@@ -64,11 +64,21 @@ public class AddWindowController implements Initializable {
                 }
             }
             if(containsOnlyDigits){
-                Database.getInstance().addLogEntry(new LogEntry(Integer.parseInt(droneIDTextField.getText()), Database.getInstance().getCurrentUser(), descriptionTextArea.getText(), t));
-                Platform.runLater(() ->{
-                    Stage s = (Stage)droneIDTextField.getScene().getWindow();
-                    s.close();
-                });
+                int droneIDInt = Integer.parseInt(droneIDTextField.getText());
+                if(!Database.getInstance().checkIfDroneExists(droneIDInt)){
+                    Alert al1 = new Alert(Alert.AlertType.CONFIRMATION);
+                    al1.setTitle("Drone does not exist");
+                    al1.setContentText("The given DroneID does not exist");
+                    al1.show();
+                }
+                else{
+                    Database.getInstance().addLogEntry(new LogEntry(droneIDInt, Database.getInstance().getCurrentUser(), descriptionTextArea.getText(), t));
+                    Platform.runLater(() ->{
+                        Stage s = (Stage)droneIDTextField.getScene().getWindow();
+                        s.close();
+                    });
+                }
+
             }
         }
     }
