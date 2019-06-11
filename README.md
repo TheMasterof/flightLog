@@ -3,24 +3,35 @@
 
 http://vm81.htl-leonding.ac.at:8080/issues/flog
 
-## Starten des Programms
+### Starten des Programms
 
-### 1. Projekt in IntelliJ geöffnent  
+#### 1. Projekt in IntelliJ geöffnent  
 In IntellJ: File -> Open -> [Verzeichnis von Project]/flightLogFXML
 
-### 2. Datenbank Starten  
+#### 2. Datenbank Starten  
 In Terminal zu /flightLog navigieren -> docker-compose up -d
 
-### 3. Datenbank in IntelliJ hinzufügen  
+#### 3. Datenbank in IntelliJ hinzufügen  
 Am rechten Rand von IntelliJ auf Database klicken, dann auf + -> Data Source -> MariaDB
+![dbConfig](./general/dbConfig.png)  
+
+Wenn nötig, Treiber installieren (Links neben OK Button)  
+
+Danach kann man das Projekt wie gewohnt starten
 
 
+### Guide
 
-Um das Programm starten zu können muss es in IntelliJ geöffnent werden.
-Die Datenbank muss mit 'docker-compose up' in diesem Ordner gestartet werden.
-In IntelliJ müssen im Datenbank Fenster als Username: 'user' und als Passwort 'passme' angegeben und eventuell die driver installiert werden.
-Danach kann man das Programm starten.
-Um Logs anlegen zu können, muss man sich über das Login Fenster mit Usernamen 'peda', 'hans' oder 'franz' und keinem Passwort anmelden
+Wenn man nicht angemeldet ist, kann man siche jegliche Daten anzeigen lassen, um sie jedoch zu erweitern, muss sich der User anmelden.
+Anmelden kann man sich über das Login Fenster mit Usernamen 'peda', 'hans' oder 'franz' und keinem Passwort.
+Nun kann man Flüge und Drohnen hinzufügen.
 
-Fehldende Funktion:
-Login mit ldap weil wir eine Connection-URL des Ldap Server benötigen
+### ToDo
+Login mit ldap (Es felht eine Connextion-URL des Ldap Servers)
+
+### Used Technologies and Libraries
+* [Java SE](https://www.w3schools.com/java/)
+* [Java FXML](https://javabeginners.de/Frameworks/JavaFX/FXML.php)
+* [JDBC](https://www.tutorialspoint.com/jdbc/)
+* [Docker](https://www.docker.com/)
+* [mariaDB](https://mariadb.org/)
