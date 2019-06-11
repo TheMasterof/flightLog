@@ -8,7 +8,7 @@ Um das Programm starten zu können muss es in IntelliJ geöffnent werden.
 Die Datenbank muss mit 'docker-compose up' in diesem Ordner gestartet werden.
 In IntelliJ müssen im Datenbank Fenster als Username: 'user' und als Passwort 'passme' angegeben und eventuell die driver installiert werden.
 Danach kann man das Programm starten.
-Um Logs anlegen zu könne muss man sich über das Login Fenster mit Username 'Peda' und keinem Passwort anmelden
+Um Logs anlegen zu können, muss man sich über das Login Fenster mit Usernamen 'peda', 'hans' oder 'franz' und keinem Passwort anmelden
 
 Fehldende Funktion:
 Login mit ldap weil wir eine Connection-URL des Ldap Server benötigen
