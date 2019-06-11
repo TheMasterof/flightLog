@@ -12,7 +12,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("./fxml/masterWindow.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("fxml/masterWindow.fxml")));
         primaryStage.setTitle("flightLog");
         primaryStage.setScene(new Scene(root, 800, 800));
         primaryStage.show();
