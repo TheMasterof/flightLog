@@ -16,9 +16,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Stage stage = new Stage();
         Parent root = null;
-        root = FXMLLoader.load(getClass().getResource("../View/masterWindow.fxml"));
+        URL url = new File("flightLogFXML/src/view/masterWindow.fxml").toURI().toURL();
+        root = FXMLLoader.load(url);
         stage.setTitle("flightLog");
-        stage.setScene(new Scene(root, 800, 800));
+        stage.setResizable(false);
+        stage.setScene(new Scene(root, 800, 600));
         stage.show();
     }
 
