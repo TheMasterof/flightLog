@@ -17,7 +17,8 @@ public class Main extends Application {
         URL url = new File("flightLogFXML/src/view/masterWindow.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
         primaryStage.setTitle("flightLog");
-        primaryStage.setScene(new Scene(root, 800, 800));
+        primaryStage.setResizable(false);
+        primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
     }
 
