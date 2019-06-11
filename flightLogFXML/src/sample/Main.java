@@ -16,7 +16,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Stage stage = new Stage();
         Parent root = null;
-        URL url = new File("flightLogFXML/src/view/masterWindow.fxml").toURI().toURL();
+        URL url = new File("src/view/masterWindow.fxml").toURI().toURL();
         root = FXMLLoader.load(url);
         stage.setTitle("flightLog");
         stage.setResizable(false);

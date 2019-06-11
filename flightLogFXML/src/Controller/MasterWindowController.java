@@ -15,7 +15,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -73,7 +72,8 @@ public class MasterWindowController implements Initializable, Observer {
         try {
             Stage stage = new Stage();
             Parent root;
-            URL url = new File("flightLogFXML/src/view/AddWindow.fxml").toURI().toURL();
+            // für .jar file:    URL url = new File("flightLogFXML/src/view/AddWindow.fxml").toURI().toURL();
+            URL url = new File("src/view/AddWindow.fxml").toURI().toURL();
             root = FXMLLoader.load(url);
             stage.setTitle("Add Flight");
             stage.setScene(new Scene(root, addWindowWidth, addWindowHeight));
@@ -129,7 +129,9 @@ public class MasterWindowController implements Initializable, Observer {
         try {
             Stage stage = new Stage();
             Parent root = null;
-            URL url = new File("flightLogFXML/src/view/showLogWindow.fxml").toURI().toURL();
+            // für .jar file:   URL url = new File("flightLogFXML/src/view/showLogWindow.fxml").toURI().toURL();
+            URL url = new File("src/view/showLogWindow.fxml").toURI().toURL();
+
             root = FXMLLoader.load(url);
             stage.setTitle("Logs");
             stage.setScene(new Scene(root, showLogWindowWidth, showLogWindowHeight));
@@ -154,7 +156,9 @@ public class MasterWindowController implements Initializable, Observer {
                 Thread t = new Thread(lt);
 
                 Stage stage = new Stage();
-                URL url = new File("flightLogFXML/src/view/loginWindow.fxml").toURI().toURL();
+                // für .jar file:   URL url = new File("flightLogFXML/src/view/loginWindow.fxml").toURI().toURL();
+                URL url = new File("src/view/loginWindow.fxml").toURI().toURL();
+
                 Parent root = FXMLLoader.load(url);
                 stage.setTitle("Login");
                 stage.setScene(new Scene(root, loginWindowWidth, loginWindowHeight));
@@ -169,7 +173,9 @@ public class MasterWindowController implements Initializable, Observer {
         try {
             Stage stage = new Stage();
             Parent root = null;
-            URL url = new File("flightLogFXML/src/view/showDronesWindow.fxml").toURI().toURL();
+            // für .jar file:    URL url = new File("flightLogFXML/src/view/showDronesWindow.fxml").toURI().toURL();
+            URL url = new File("src/view/showDronesWindow.fxml").toURI().toURL();
+
             root = FXMLLoader.load(url);
             stage.setTitle("Drones");
             stage.setScene(new Scene(root, showDronesWindowWidth, showDronesWindowHeight));
