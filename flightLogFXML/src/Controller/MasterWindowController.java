@@ -32,6 +32,9 @@ public class MasterWindowController implements Initializable, Observer {
     private Button showLogButton;
 
     @FXML
+    private Button addDroneButton;
+
+    @FXML
     private Button loginButton;
 
     @FXML
@@ -51,6 +54,8 @@ public class MasterWindowController implements Initializable, Observer {
     private int showLogWindowHeight = 600;
     private int showDronesWindowWidth = 1000;
     private int showDronesWindowHeight = 600;
+    private int addDroneWindowWidth = 600;
+    private int addDroneWindowHeight = 400;
 
     //endregion
 
@@ -62,8 +67,23 @@ public class MasterWindowController implements Initializable, Observer {
 
     public void changeButtonsDisable(){
         addFlightButton.setDisable(!addFlightButton.isDisabled());
-        showDrones.setDisable(!showDrones.isDisabled());
+        addDroneButton.setDisable(!showDrones.isDisabled());
+    }
 
+    @FXML
+    void addDroneButtonHandler(ActionEvent event) {
+        try {
+            Stage stage = new Stage();
+            Parent root;
+            // für .jar file:    URL url = new File("flightLogFXML/src/view/AddDroneWindow.fxml").toURI().toURL();
+            URL url = new File("src/view/AddDroneWindow.fxml").toURI().toURL();
+            root = FXMLLoader.load(url);
+            stage.setTitle("Add Drone");
+            stage.setScene(new Scene(root, addDroneWindowWidth, addDroneWindowHeight));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

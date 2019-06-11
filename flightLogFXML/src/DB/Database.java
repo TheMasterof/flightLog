@@ -72,7 +72,16 @@ public class Database {
     }
 
     public void addDrone(Drone d){
-        //TODO
+        String sql = "INSERT INTO drone (id, name, description) VALUES (?, ?, ?)";
+        try {
+            PreparedStatement prep = connection.prepareStatement(sql);
+            prep.setInt(1, d.getId());
+            prep.setString(2, d.getName());
+            prep.setString(3, d.getDescription());
+            prep.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     private List<LogEntry> getLogEntriesWithGivenSQL(String sql){
         List<LogEntry> entries = new LinkedList<>();
