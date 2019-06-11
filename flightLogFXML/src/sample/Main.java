@@ -6,13 +6,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.net.URL;
 import java.util.Objects;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("fxml/masterWindow.fxml")));
+        URL url = new File("flightLogFXML/src/sample/fxml/masterWindow.fxml").toURI().toURL();
+        Parent root = FXMLLoader.load(url);
         primaryStage.setTitle("flightLog");
         primaryStage.setScene(new Scene(root, 800, 800));
         primaryStage.show();
