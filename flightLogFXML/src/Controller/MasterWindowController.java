@@ -171,8 +171,6 @@ public class MasterWindowController implements Initializable, Observer {
         else{
             try {
                 LoginThread lt = LoginThread.getInstance();
-                System.out.println(lt);
-                System.out.println(this);
                 lt.addObserver(this);
                 Thread t = new Thread(lt);
 
