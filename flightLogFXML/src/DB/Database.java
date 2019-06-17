@@ -154,4 +154,18 @@ public class Database {
         }
         return false;
     }
+
+    public void updateDrone(Drone d){
+        String sql = "UPDATE drone SET name = ?, description = ?, available = ? WHERE id = ?";
+        try {
+            PreparedStatement prep = connection.prepareStatement(sql);
+            prep.setString(1, d.getName());
+            prep.setString(2, d.getDescription());
+            prep.setBoolean(3, d.getAvailableBoolean());
+            prep.setInt(4, d.getId());
+            prep.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
