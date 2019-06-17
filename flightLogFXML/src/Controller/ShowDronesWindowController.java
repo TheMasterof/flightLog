@@ -97,7 +97,7 @@ public class ShowDronesWindowController implements Initializable {
         Drone d = dronesTableView.getSelectionModel().getSelectedItem();
         if ( d != null)
         {
-            if ( keyEvent.getCode().equals( KeyCode.DELETE ) )
+            if ( keyEvent.getCode().equals( KeyCode.DELETE ) && Database.getInstance().getCurrentUser() != null)
             {
                 Database.getInstance().deleteDrone(d);
                 dronesTableView.setItems(FXCollections.observableArrayList(Database.getInstance().getDrones()));
