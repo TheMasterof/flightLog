@@ -6,7 +6,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ShowDronesWindowController">
    <center>
-      <TableView fx:id="dronesTableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="dronesTableView" onKeyPressed="#setOnKeyPressed" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="idCol" prefWidth="92.00002747774124" text="ID" />
           <TableColumn fx:id="nameCol" prefWidth="250.40000915527344" text="Name" />

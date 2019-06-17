@@ -168,4 +168,15 @@ public class Database {
             e.printStackTrace();
         }
     }
+
+    public void deleteDrone(Drone d) {
+        String sql = "DELETE FROM drone WHERE id = ?";
+        try {
+            PreparedStatement prep = connection.prepareStatement(sql);
+            prep.setInt(1, d.getId());
+            prep.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

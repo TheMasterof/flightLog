@@ -11,6 +11,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 import javax.xml.crypto.Data;
 import java.net.URL;
@@ -91,4 +93,15 @@ public class ShowDronesWindowController implements Initializable {
     }
 
 
+    public void setOnKeyPressed(KeyEvent keyEvent) {
+        Drone d = dronesTableView.getSelectionModel().getSelectedItem();
+        if ( d != null)
+        {
+            if ( keyEvent.getCode().equals( KeyCode.DELETE ) )
+            {
+                Database.getInstance().deleteDrone(d);
+                dronesTableView.setItems(FXCollections.observableArrayList(Database.getInstance().getDrones()));
+            }
+        }
+    }
 }
