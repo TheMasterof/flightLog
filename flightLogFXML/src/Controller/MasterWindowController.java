@@ -14,10 +14,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
@@ -79,6 +81,7 @@ public class MasterWindowController implements Initializable, Observer {
             URL url = new File("src/view/AddDroneWindow.fxml").toURI().toURL();
             root = FXMLLoader.load(url);
             stage.setTitle("Add Drone");
+            stage.getIcons().add(new Image(Paths.get("src/view/drone.png").toUri().toURL().toString()));
             stage.setScene(new Scene(root, addDroneWindowWidth, addDroneWindowHeight));
             stage.show();
         } catch (IOException e) {
@@ -96,6 +99,7 @@ public class MasterWindowController implements Initializable, Observer {
             URL url = new File("src/view/AddWindow.fxml").toURI().toURL();
             root = FXMLLoader.load(url);
             stage.setTitle("Add Flight");
+            stage.getIcons().add(new Image(Paths.get("src/view/drone.png").toUri().toURL().toString()));
             stage.setScene(new Scene(root, addWindowWidth, addWindowHeight));
             stage.show();
         } catch (IOException e) {
@@ -154,6 +158,7 @@ public class MasterWindowController implements Initializable, Observer {
 
             root = FXMLLoader.load(url);
             stage.setTitle("Logs");
+            stage.getIcons().add(new Image(Paths.get("src/view/drone.png").toUri().toURL().toString()));
             stage.setScene(new Scene(root, showLogWindowWidth, showLogWindowHeight));
             stage.show();
         } catch (IOException e) {
@@ -180,6 +185,7 @@ public class MasterWindowController implements Initializable, Observer {
 
                 Parent root = FXMLLoader.load(url);
                 stage.setTitle("Login");
+                stage.getIcons().add(new Image(Paths.get("src/view/drone.png").toUri().toURL().toString()));
                 stage.setScene(new Scene(root, loginWindowWidth, loginWindowHeight));
                 stage.show();
             } catch (IOException e) {
@@ -197,6 +203,7 @@ public class MasterWindowController implements Initializable, Observer {
 
             root = FXMLLoader.load(url);
             stage.setTitle("Drones");
+            stage.getIcons().add(new Image(Paths.get("src/view/drone.png").toUri().toURL().toString()));
             stage.setScene(new Scene(root, showDronesWindowWidth, showDronesWindowHeight));
             stage.show();
         } catch (IOException e) {
