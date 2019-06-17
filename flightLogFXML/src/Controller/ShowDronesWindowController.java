@@ -50,10 +50,21 @@ public class ShowDronesWindowController implements Initializable {
         }
 
         idCol.setCellValueFactory(new PropertyValueFactory("id"));
+
         nameCol.setCellValueFactory(new PropertyValueFactory("name"));
         nameCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        nameCol.setOnEditCommit((TableColumn.CellEditEvent<Drone, String > t) -> {
+            t.getRowValue().setName(t.getNewValue());
+            Database.getInstance().updateDrone(t.getRowValue());
+        });
+
         descriptionCol.setCellValueFactory(new PropertyValueFactory("description"));
         descriptionCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        descriptionCol.setOnEditCommit((TableColumn.CellEditEvent<Drone, String > t) -> {
+            t.getRowValue().setDescription(t.getNewValue());
+            Database.getInstance().updateDrone(t.getRowValue());
+        });
+
         availableCol.setCellValueFactory(new PropertyValueFactory("available"));
         availableCol.setCellFactory(TextFieldTableCell.forTableColumn());
         availableCol.setOnEditCommit((TableColumn.CellEditEvent<Drone, String> t) -> {
