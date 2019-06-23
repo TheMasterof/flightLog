@@ -118,7 +118,7 @@ public class ShowLogWindowController implements Initializable, Observer {
             stage.setTitle("Add Drone");
             stage.getIcons().add(new Image(Paths.get("src/view/drone.png").toUri().toURL().toString()));
             stage.setScene(new Scene(root, addDroneWindowWidth, addDroneWindowHeight));
-            stage.showAndWait();
+            stage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -137,7 +137,8 @@ public class ShowLogWindowController implements Initializable, Observer {
             stage.setTitle("Add Flight");
             stage.getIcons().add(new Image(Paths.get("src/view/drone.png").toUri().toURL().toString()));
             stage.setScene(new Scene(root, addWindowWidth, addWindowHeight));
-            stage.show();
+            stage.showAndWait();
+            logTableView.setItems(FXCollections.observableArrayList(Database.getInstance().getLogEntries()));
         } catch (IOException e) {
             e.printStackTrace();
         }
