@@ -1,8 +1,10 @@
 package Controller;
 
 import DB.Database;
+import Model.Drone;
 import Model.LogEntry;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,6 +18,7 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class AddWindowController implements Initializable {
     //region Fields
@@ -23,10 +26,11 @@ public class AddWindowController implements Initializable {
     private TextArea descriptionTextArea;
 
     @FXML
-    private DatePicker flightDatePicker;
+    private ChoiceBox<Integer> droneIDChoiceBox;
 
     @FXML
-    private TextField droneIDTextField;
+    private DatePicker flightDatePicker;
+
 
     @FXML
     private Button addFlightButton;
@@ -37,13 +41,13 @@ public class AddWindowController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        droneIDChoiceBox.setItems(FXCollections.observableList(Database.getInstance().getDrones().stream().map(Drone::getId).collect(Collectors.toList())));
     }
 
 
     @FXML
     void addFlightButtonHandler(ActionEvent event) {
-        if(flightDatePicker.getValue() == null || droneIDTextField.getText().equals("")){
+        if(flightDatePicker.getValue() == null || droneIDChoiceBox.getValue() == null){
             Alert al = new Alert(Alert.AlertType.CONFIRMATION);
             al.setTitle("Falsche Parameter");
             al.setContentText("Kein Datum/Keine Drohne gegeben");
@@ -53,33 +57,12 @@ public class AddWindowController implements Initializable {
             Boolean containsOnlyDigits = true;
             LocalDate l = flightDatePicker.getValue();
             Timestamp t = Timestamp.valueOf(l.atStartOfDay());
-            String droneID = droneIDTextField.getText();
-            for (int i = 0; i < droneID.length(); i++) {
-                if(!Character.isDigit(droneID.charAt(i))){
-                    containsOnlyDigits = false;
-                    Alert al = new Alert(Alert.AlertType.CONFIRMATION);
-                    al.setTitle("Falsche Parameter");
-                    al.setContentText("Drone-ID ist keine Zahl");
-                    al.show();
-                }
-            }
-            if(containsOnlyDigits){
-                int droneIDInt = Integer.parseInt(droneIDTextField.getText());
-                if(!Database.getInstance().checkIfDroneExists(droneIDInt)){
-                    Alert al1 = new Alert(Alert.AlertType.CONFIRMATION);
-                    al1.setTitle("Drone does not exist");
-                    al1.setContentText("The given DroneID does not exist");
-                    al1.show();
-                }
-                else{
-                    Database.getInstance().addLogEntry(new LogEntry(droneIDInt, Database.getInstance().getCurrentUser(), descriptionTextArea.getText(), t));
-                    Platform.runLater(() ->{
-                        Stage s = (Stage)droneIDTextField.getScene().getWindow();
-                        s.close();
-                    });
-                }
-
-            }
+            int droneID = droneIDChoiceBox.getValue();
+            Database.getInstance().addLogEntry(new LogEntry(droneID, Database.getInstance().getCurrentUser(), descriptionTextArea.getText(), t));
+            Platform.runLater(() ->{
+                Stage s = (Stage)droneIDChoiceBox.getScene().getWindow();
+                s.close();
+            });
         }
     }
 }

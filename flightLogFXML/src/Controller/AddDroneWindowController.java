@@ -3,22 +3,22 @@ package Controller;
 import DB.Database;
 import Model.Drone;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class AddDroneWindowController implements Initializable {
     //region FIELDS
     @FXML
     private TextField droneIDTextField;
+
 
     @FXML
     private TextField nameTextField;

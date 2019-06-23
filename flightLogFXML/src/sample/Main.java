@@ -18,12 +18,12 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Stage stage = new Stage();
         Parent root = null;
-        URL url = new File("src/view/masterWindow.fxml").toURI().toURL();
+        URL url = new File("src/view/showLogWindow.fxml").toURI().toURL();
         root = FXMLLoader.load(url);
         stage.setTitle("flightLog");
         stage.getIcons().add(new Image(Paths.get("src/view/drone.png").toUri().toURL().toString()));
         stage.setResizable(false);
-        stage.setScene(new Scene(root, 800, 600));
+        stage.setScene(new Scene(root, 1000, 600));
         stage.show();
     }
 
