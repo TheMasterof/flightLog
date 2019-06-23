@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ShowLogWindowController">
-   <top>
+   <center>
       <TableView fx:id="logTableView" prefHeight="600.0" prefWidth="800.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="logIDCol" prefWidth="72.00002747774124" text="LogID" />
@@ -15,5 +21,34 @@
             <TableColumn fx:id="timeOfFlightCol" prefWidth="158.39996337890625" text="Time of Flight" />
         </columns>
       </TableView>
+   </center>
+   <top>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="383.0" minWidth="10.0" prefWidth="383.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="17.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="loginButton" mnemonicParsing="false" onAction="#loginButtonHandler" text="Login" GridPane.columnIndex="4" GridPane.halignment="RIGHT">
+               <GridPane.margin>
+                  <Insets right="25.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="addFlightButton" mnemonicParsing="false" onAction="#addFlightButtonHandler" text="Add Flight" GridPane.halignment="CENTER" />
+            <Button fx:id="showDrones" mnemonicParsing="false" onAction="#showDronesHandler" text="Show Drones" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Button fx:id="addDroneButton" mnemonicParsing="false" onAction="#addDroneButtonHandler" text="Add drone" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            <Label fx:id="messageLabel" GridPane.columnIndex="3" GridPane.halignment="RIGHT">
+               <GridPane.margin>
+                  <Insets right="20.0" />
+               </GridPane.margin>
+            </Label>
+         </children>
+      </GridPane>
    </top>
 </BorderPane>

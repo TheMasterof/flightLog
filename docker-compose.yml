@@ -1,19 +1,19 @@
 version: '3'
 
-services: 
+services:
   mariadb:
     image: mariadb:10.4.5
     container_name: mariadb
-    environment: 
+    environment:
       MYSQL_ROOT_PASSWORD: passme
       MYSQL_DATABASE: mydb
       MYSQL_USER: user
       MYSQL_PASSWORD: passme
     ports:
       - 3306:3306
-    volumes:
-      - ./mariadbdata:/var/lib/mysql
-      
+    #volumes:
+    #  - ./mariadata:/var/lib/mysql
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     links:
@@ -22,4 +22,3 @@ services:
       - 8000:80
     environment:
       MYSQL_ROOT_PASSWORD: passme
-      
