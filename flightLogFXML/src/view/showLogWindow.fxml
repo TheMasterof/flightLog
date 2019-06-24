@@ -61,9 +61,9 @@
       </GridPane>
    </top>
    <bottom>
-      <Button fx:id="addFlightButton" mnemonicParsing="false" onAction="#addFlightButtonHandler" prefHeight="50.0" prefWidth="100.0" style="-fx-background-radius: 100;" text="Add Flight" BorderPane.alignment="CENTER">
+      <Button fx:id="addFlightButton" mnemonicParsing="false" onAction="#addFlightButtonHandler" prefHeight="75.0" prefWidth="150.0" style="-fx-background-radius: 100;" text="Add Flight" BorderPane.alignment="CENTER">
          <BorderPane.margin>
-            <Insets bottom="25.0" />
+            <Insets bottom="15.0" />
          </BorderPane.margin>
          <font>
             <Font size="14.0" />

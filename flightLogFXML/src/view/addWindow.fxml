@@ -25,7 +25,7 @@
             <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextArea fx:id="descriptionTextArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="150.0" prefWidth="225.0" promptText="Description" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+            <TextArea fx:id="descriptionTextArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="150.0" prefWidth="225.0" promptText="Description" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin></TextArea>
